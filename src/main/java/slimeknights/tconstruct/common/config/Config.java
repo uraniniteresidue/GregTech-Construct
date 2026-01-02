@@ -56,6 +56,7 @@ public class Config {
     public final BooleanValue forceIntegrationMaterials;
     public final BooleanValue disableSideInventoryWhitelist;
     public final BooleanValue quickApplyToolModifiersSurvival;
+    public final BooleanValue isEnhanceAble;
     public final EnumValue<LogInvalidToolStack> logInvalidToolStack;
     public enum LogInvalidToolStack { STACKTRACE, WARNING, IGNORED }
 
@@ -80,6 +81,10 @@ public class Config {
       this.repairKitAmount = builder
         .comment("Amount of durability restored by a repair kit in terms of ingots. Does not affect the cost to create the kit, that is controlled by JSON.")
         .defineInRange("repairKitAmount", 2f, 0f, Short.MAX_VALUE);
+
+      this.isEnhanceAble = builder
+        .comment("Allow Tinker's tools can be enhanced")
+        .define("AllowTinkersToolsCanBeEnhanced", false);
 
 //      this.chestsKeepInventory = builder
 //        .comment("Pattern and Part chests keep their inventory when harvested.")
