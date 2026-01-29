@@ -97,6 +97,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static net.minecraft.world.item.Rarity.RARE;
+import static net.minecraft.world.item.enchantment.Enchantment.Rarity.UNCOMMON;
+import static net.minecraft.world.item.enchantment.Enchantment.Rarity.VERY_RARE;
+import static slimeknights.tconstruct.common.config.Config.COMMON;
+
 /**
  * Event subscriber for tool events
  */
@@ -288,7 +293,7 @@ public class ToolEvents {
     Entity attacker = source.getEntity();
     if (attacker instanceof LivingEntity living) {
       // boost damage based on monster's melee weapon
-      if (Config.COMMON.allowMonsterMeleeModifiers.get() && source.is(TinkerTags.DamageTypes.MODIFIER_WHITELIST) && !living.getType().is(TinkerTags.EntityTypes.DAMAGE_MODIFIER_BLACKLIST)) {
+      if (COMMON.allowMonsterMeleeModifiers.get() && source.is(TinkerTags.DamageTypes.MODIFIER_WHITELIST) && !living.getType().is(TinkerTags.EntityTypes.DAMAGE_MODIFIER_BLACKLIST)) {
         ItemStack weapon = living.getMainHandItem();
         if (!weapon.isEmpty() && weapon.is(TinkerTags.Items.MELEE_WEAPON)) {
           IToolStackView tool = ToolStack.from(weapon);
@@ -629,7 +634,7 @@ public class ToolEvents {
   @SubscribeEvent
   public static void onAnvilUpdate(AnvilUpdateEvent event){
 
-    if (!Config.COMMON.isEnhanceAble.get()) {
+    if (!COMMON.isEnhanceAble.get()) {
       return;
     }
 
