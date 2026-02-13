@@ -1,12 +1,5 @@
 {
   "type": "tconstruct:ore_melting",
-  "byproducts": [
-    {
-      "amount": 48,
-      "rate": "metal",
-      "tag": "forge:gold"
-    }
-  ],
   "conditions": [
     {
       "type": "mantle:tag_filled",
