@@ -604,14 +604,47 @@ public class SmelteryRecipeBuilder {
     return meltingCasting(1.5F, TinkerSmeltery.plateCast, 1, true);
   }
 
+  /** Adds a recipe for casting plates */
+  public SmelteryRecipeBuilder plateCasting() {
+    return plateCasting(true);
+  }
+
+  /** Adds a recipe for casting plates */
+  public SmelteryRecipeBuilder plateCasting(boolean forceOptional) {
+    tagCasting(1.5F, "plate", TinkerSmeltery.plateCast, "plates/" + this.name.getPath(), forceOptional);
+    return this;
+  }
+
   /** Adds a recipe for melting gears */
   public SmelteryRecipeBuilder gear() {
     return meltingCasting(10, TinkerSmeltery.gearCast, 2, true);
   }
 
+  /** Adds a recipe for casting gears */
+  public SmelteryRecipeBuilder gearCasting() {
+    return gearCasting(true);
+  }
+
+  /** Adds a recipe for casting gears */
+  public SmelteryRecipeBuilder gearCasting(boolean forceOptional) {
+    tagCasting(10, "gear", TinkerSmeltery.gearCast, "gears/" + this.name.getPath(), forceOptional);
+    return this;
+  }
+
   /** Adds a recipe for melting rods from IE */
   public SmelteryRecipeBuilder rod() {
     return meltingCasting(0.75f, TinkerSmeltery.rodCast, 1 / 5f, true);
+  }
+
+  /** Adds a recipe for casting rods */
+  public SmelteryRecipeBuilder rodCasting() {
+    return rodCasting(true);
+  }
+
+  /** Adds a recipe for casting rods */
+  public SmelteryRecipeBuilder rodCasting(boolean forceOptional) {
+    tagCasting(0.75f, "rod", TinkerSmeltery.rodCast, "rods/" + this.name.getPath(), forceOptional);
+    return this;
   }
 
   /** Adds a recipe for melting sheetmetal from IE */
